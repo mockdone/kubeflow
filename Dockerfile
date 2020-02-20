@@ -1,1 +1,1 @@
-FROM gcr.io/kfserving/kfserving-controller:0.2.2
+FROM gcr.io/tfx-oss-public/ml_metadata_store_server:v0.21.1
