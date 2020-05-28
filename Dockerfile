@@ -20,12 +20,13 @@ RUN wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://raw.githubusercontent.com/
   echo "export LANG=C.UTF-8" > /etc/profile.d/locale.sh && \
   ln -s /usr/include/locale.h /usr/include/xlocale.h
 
-
+RUN pip install --upgrade pip
 RUN pip install Cython --install-option="--no-cython-compile"
 # Install Jupyter
 RUN pip install jupyter
 RUN pip install ipywidgets
-#RUN pip install tensorflow==1.8.0
+RUN pip install tensorflow
+RUN pip install tf-nightly
 #RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple tensorflow==1.8.0
 RUN jupyter nbextension enable --py widgetsnbextension
 
