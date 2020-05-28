@@ -1,5 +1,5 @@
 #FROM gcr.io/tfx-oss-public/ml_metadata_store_server:v0.21.1
-FROM python:3.5-alpine
+FROM python:3.6-alpine
 #ADD Anaconda3-2020.02-Linux-x86_64.sh /opt
 #WORKDIR /opt
 #RUN sh -c '/bin/echo -e "\n\yes\n\nyes" | sh Anaconda3-2020.02-Linux-x86_64.sh'
@@ -25,7 +25,7 @@ RUN pip install Cython --install-option="--no-cython-compile"
 # Install Jupyter
 RUN pip install jupyter
 RUN pip install ipywidgets
-RUN pip3.5 install tensorflow
+RUN pip3.6 install tensorflow==1.8.0
 RUN jupyter nbextension enable --py widgetsnbextension
 
 # Install JupyterLab
