@@ -25,7 +25,8 @@ RUN pip install Cython --install-option="--no-cython-compile"
 # Install Jupyter
 RUN pip install jupyter
 RUN pip install ipywidgets
-RUN pip3.6 install tensorflow==1.8.0
+#RUN pip install tensorflow==1.8.0
+RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple tensorflow==1.8.0
 RUN jupyter nbextension enable --py widgetsnbextension
 
 # Install JupyterLab
