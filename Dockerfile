@@ -25,7 +25,7 @@ RUN pip install Cython --install-option="--no-cython-compile"
 # Install Jupyter
 RUN pip install jupyter
 RUN pip install ipywidgets
-RUN pip install tensorflow-gpu
+RUN pip install tensorflow
 RUN jupyter nbextension enable --py widgetsnbextension
 
 # Install JupyterLab
