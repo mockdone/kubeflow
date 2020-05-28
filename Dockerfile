@@ -42,7 +42,7 @@ ENV LANG=C.UTF-8
 
 # Install Python Packages & Requirements (Done near end to avoid invalidating cache)
 #COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+#RUN pip install -r requirements.txt
 
 # Expose Jupyter port & cmd
 EXPOSE 8888
