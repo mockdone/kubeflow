@@ -1,5 +1,5 @@
 #FROM gcr.io/tfx-oss-public/ml_metadata_store_server:v0.21.1
-FROM python:alpine
+FROM python3.6:alpine
 #ADD Anaconda3-2020.02-Linux-x86_64.sh /opt
 #WORKDIR /opt
 #RUN sh -c '/bin/echo -e "\n\yes\n\nyes" | sh Anaconda3-2020.02-Linux-x86_64.sh'
