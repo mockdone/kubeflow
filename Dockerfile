@@ -7,15 +7,7 @@ FROM python:alpine
 # Install required packages
 RUN apk add --update --virtual=.build-dependencies alpine-sdk nodejs ca-certificates musl-dev gcc python-dev python-devel make cmake g++ gfortran libpng-dev freetype-dev libxml2-dev libxslt-dev
 RUN apk add --update git
-RUN pip install Cython --install-option="--no-cython-compile"
-# Install Jupyter
-RUN pip install jupyter
-RUN pip install ipywidgets
-RUN pip install tensorflow-gpu
-RUN jupyter nbextension enable --py widgetsnbextension
 
-# Install JupyterLab
-RUN pip install jupyterlab && jupyter serverextension enable --py jupyterlab
 
 # Additional packages for compatability (glibc)
 RUN wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://raw.githubusercontent.com/sgerrand/alpine-pkg-glibc/master/sgerrand.rsa.pub && \
@@ -27,6 +19,17 @@ RUN wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://raw.githubusercontent.com/
   /usr/glibc-compat/bin/localedef --force --inputfile POSIX --charmap UTF-8 C.UTF-8 || true && \
   echo "export LANG=C.UTF-8" > /etc/profile.d/locale.sh && \
   ln -s /usr/include/locale.h /usr/include/xlocale.h
+
+
+RUN pip install Cython --install-option="--no-cython-compile"
+# Install Jupyter
+RUN pip install jupyter
+RUN pip install ipywidgets
+RUN pip install tensorflow-gpu
+RUN jupyter nbextension enable --py widgetsnbextension
+
+# Install JupyterLab
+RUN pip install jupyterlab && jupyter serverextension enable --py jupyterlab
 
 # Optional Clean-up
 #  RUN apk del glibc-i18n && \
