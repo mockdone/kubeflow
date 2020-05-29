@@ -3,7 +3,7 @@ FROM python:3.6-alpine
 #ADD Anaconda3-2020.02-Linux-x86_64.sh /opt
 #WORKDIR /opt
 #RUN sh -c '/bin/echo -e "\n\yes\n\nyes" | sh Anaconda3-2020.02-Linux-x86_64.sh'
-
+RUN mkdir /home/jovyan
 # Install required packages
 RUN apk add --update --virtual=.build-dependencies alpine-sdk nodejs ca-certificates musl-dev gcc python python-dev  make cmake g++ gfortran  py-pip mysql-dev linux-headers libffi-dev libpng-dev freetype-dev libxml2-dev libxslt-dev
 RUN apk add --update git
@@ -48,4 +48,7 @@ ENV LANG=C.UTF-8
 # Expose Jupyter port & cmd
 EXPOSE 8888
 RUN mkdir -p /opt/app/data
-CMD jupyter lab --ip=* --port=8888 --no-browser --notebook-dir=/opt/app/data --allow-root
+#CMD jupyter lab --ip=* --port=8888 --no-browser --notebook-dir=/opt/app/data --allow-root
+ENV NB_PREFIX /
+
+CMD ["sh","-c", "jupyter lab --notebook-dir=/home/jovyan --ip=0.0.0.0 --no-browser --allow-root --port=8888 --NotebookApp.token='' --NotebookApp.password='' --NotebookApp.allow_origin='*' --NotebookApp.base_url=${NB_PREFIX}"]
