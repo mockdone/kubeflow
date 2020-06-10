@@ -25,6 +25,7 @@ RUN pip install Cython --install-option="--no-cython-compile"
 # Install Jupyter
 RUN pip install jupyter
 RUN pip install ipywidgets
+RUN pip install nbresuse==0.3.3
 #RUN pip install tensorflow
 #RUN pip install tf-nightly
 #RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple tensorflow==1.8.0
@@ -32,7 +33,7 @@ RUN jupyter nbextension enable --py widgetsnbextension
 
 # Install JupyterLab
 RUN pip install jupyterlab && jupyter serverextension enable --py jupyterlab
-
+RUN jupyter labextension install jupyterlab-topbar-extension jupyterlab-system-monitor
 # Optional Clean-up
 #  RUN apk del glibc-i18n && \
 #  apk del .build-dependencies && \
