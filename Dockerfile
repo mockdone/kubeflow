@@ -5,7 +5,7 @@ FROM python:3.6-alpine
 #RUN sh -c '/bin/echo -e "\n\yes\n\nyes" | sh Anaconda3-2020.02-Linux-x86_64.sh'
 RUN mkdir /home/jovyan
 # Install required packages
-RUN apk add --update --virtual=.build-dependencies alpine-sdk nodejs ca-certificates musl-dev gcc python python-dev  make cmake g++ gfortran  py-pip mysql-dev linux-headers libffi-dev libpng-dev freetype-dev libxml2-dev libxslt-dev
+RUN apk add --update --virtual=.build-dependencies alpine-sdk nodejs ca-certificates musl-dev gcc python   make cmake g++ gfortran  py-pip mysql-dev linux-headers libffi-dev libpng-dev freetype-dev libxml2-dev libxslt-dev
 RUN apk add --update git
 
 
