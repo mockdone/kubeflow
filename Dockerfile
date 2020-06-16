@@ -33,7 +33,7 @@ RUN jupyter nbextension enable --py widgetsnbextension
 
 # Install JupyterLab
 RUN pip install jupyterlab && jupyter serverextension enable --py jupyterlab
-RUN jupyter labextension install jupyterlab-topbar-extension jupyterlab-system-monitor
+
 # Optional Clean-up
 #  RUN apk del glibc-i18n && \
 #  apk del .build-dependencies && \
