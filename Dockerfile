@@ -52,4 +52,4 @@ RUN mkdir -p /opt/app/data
 #CMD jupyter lab --ip=* --port=8888 --no-browser --notebook-dir=/opt/app/data --allow-root
 ENV NB_PREFIX /
 
-CMD ["sh","-c", "jupyter lab --notebook-dir=/home/jovyan --ip=0.0.0.0 --no-browser --allow-root --port=8888 --NotebookApp.token='' --NotebookApp.password='' --NotebookApp.allow_origin='192.168.1.229' --NotebookApp.base_url=${NB_PREFIX}"]
+CMD ["sh","-c", "jupyter lab --notebook-dir=/home/jovyan --ip=0.0.0.0 --no-browser --allow-root --port=8888 --NotebookApp.token='' --NotebookApp.password='' --NotebookApp.allow_origin='192.168.1.229:8082' --NotebookApp.base_url=${NB_PREFIX}"]
