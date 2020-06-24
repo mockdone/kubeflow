@@ -52,4 +52,4 @@ RUN mkdir -p /opt/app/data
 #CMD jupyter lab --ip=* --port=8888 --no-browser --notebook-dir=/opt/app/data --allow-root
 ENV NB_PREFIX /
 
-CMD ["sh","-c", "jupyter lab --notebook-dir=/home/jovyan --ip=0.0.0.0 --no-browser --allow-root --port=8888 --NotebookApp.token='' --NotebookApp.password='' --NotebookApp.tornado_settings='{\"headers\":{\"Content-Security-Policy\":\"frame-ancestors self http://*.*.*.*:8082 http://10.18.3.10:8082   http://192.168.1.229:8082;\" }}' --NotebookApp.allow_origin='*' --NotebookApp.base_url=${NB_PREFIX}"]
+CMD ["sh","-c", "jupyter lab --notebook-dir=/home/jovyan --ip=0.0.0.0 --no-browser --allow-root --port=8888 --NotebookApp.token='' --NotebookApp.password='' --NotebookApp.tornado_settings='{\"headers\":{\"Content-Security-Policy\":\"frame-ancestors self http://*.*.*.*:8082 http://10.18.3.10:8082 http://183.66.41.254:8082/   http://192.168.1.229:8082;\" }}' --NotebookApp.allow_origin='*' --NotebookApp.base_url=${NB_PREFIX}"]
