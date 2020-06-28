@@ -7,7 +7,7 @@ RUN mkdir /home/jovyan
 # Install required packages
 RUN apk add --update --virtual=.build-dependencies alpine-sdk nodejs ca-certificates musl-dev gcc   make cmake g++ gfortran  py-pip mysql-dev linux-headers libffi-dev libpng-dev freetype-dev libxml2-dev libxslt-dev
 RUN apk add --update git
-
+RUN apk add font-adobe-100dpi
 
 # Additional packages for compatability (glibc)
 RUN wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://raw.githubusercontent.com/sgerrand/alpine-pkg-glibc/master/sgerrand.rsa.pub && \
