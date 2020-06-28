@@ -40,7 +40,7 @@ RUN pip install jupyterlab && jupyter serverextension enable --py jupyterlab
 #  rm glibc-2.23-r3.apk glibc-bin-2.23-r3.apk glibc-i18n-2.23-r3.apk && \
 #  rm -rf /var/cache/apk/*
 
-ENV LANG=C.UTF-8
+ENV LANG=zh_CN.UTF-8
 
 # Install Python Packages & Requirements (Done near end to avoid invalidating cache)
 #COPY requirements.txt requirements.txt
